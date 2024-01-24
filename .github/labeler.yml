@@ -4,13 +4,7 @@
 label-rules:
   - label: bug
     paths:
-      - "src/**/*.js"
-      - "tests/**/*.js"
-
-  - label: feature
-    paths:
-      - "src/**/*.jsx"
-      - "tests/**/*.jsx"
+      - "content/en/meshmap/**/*"
 
 # Define default labels to be applied if no rules match
 default-labels:
