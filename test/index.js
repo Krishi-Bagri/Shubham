@@ -1,18 +1,11 @@
+import React from 'react'
 
-hsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationss
+const index = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default index
