@@ -1,7 +1,7 @@
 # .github/labeler.yml
 
 # Define label rules based on modified paths
-label-rules:
+label-rulesaaaa:
   - label: bug
     paths:
       - "src/**/*.js"
