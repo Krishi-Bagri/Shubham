@@ -1,17 +1,11 @@
-hsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclarationhsedbdkcbjd
-CDATASectiondsc
-DynamicsCompressorNodec
-d
-CSSStyleDeclaration
+import React from 'react'
+
+const hello = () => {
+  return (
+    <div>
+      sd
+    </div>
+  )
+}
+
+export default hello
