@@ -1,18 +1,20 @@
 # .github/labeler.yml
 
 # Define label rules based on modified paths
-label-rules:
+label-rulesaaaa:
   - label: bug
     paths:
       - "src/**/*.js"
+    - "label: js-bug"
+      paths:
       - "tests/**/*.js"
 
   - label: feature
     paths:
       - "src/**/*.jsx"
+    - "label: jsx-feature"
+      paths:
       - "tests/**/*.jsx"
-
-  # Add more label rules as needed based on your project structure
 
 # Define default labels to be applied if no rules match
 default-labels:
