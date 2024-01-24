@@ -1,7 +1,7 @@
 # .github/labeler.yml
 
 # Define label rules based on modified paths
-label-rules:
+component/cloud-docs:
   - label: bug
     paths:
       - "content/en/meshmap/**/*"
