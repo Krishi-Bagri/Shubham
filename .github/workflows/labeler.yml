@@ -1,37 +1,20 @@
-name: Label PRs
+name: Pull Request Labeler
+
 on:
   pull_request:
-    paths:
-      - 'content/en/**/*'
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
-  auto-label:
+  labeler:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Auto Label PR
-      run: |
-        #!/bin/bash
-
-        changed_files=$(git diff --name-only ${{ github.base_ref }}...${{ github.sha }})
-
-        for file in $changed_files; do
-          if [[ $file == content/en/meshmap* ]]; then
-            echo "Labeling with component/cloud-docs"
-            echo "::add-labels::component/cloud-docs"
-          fi
-
-          # Add more conditions for other sections if needed
-
-        done
+      - name: Label PR based on labeler.yml
+        uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
