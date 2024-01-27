@@ -1,4 +1,4 @@
-name: Labeler and Documentation
+name: Labeler
 
 on:
   pull_request_target:
@@ -13,30 +13,10 @@ jobs:
       pull-requests: write
 
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
     - name: Labeler Action
       uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-
-  Documentation:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
-    steps:
-    - name: Check Out Repository
-      uses: actions/checkout@v2
-
-    - name: Run Documentation Job
-      run: |
-        # Add commands to build or process documentation
-        # You can use the changed files in 'docs' directory
-        # For example, you can use 'git diff' to get the changed files
-        # and filter based on the 'docs' directory.
-
-        # Example:
-        # changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-        # docs_changed=$(echo "$changed_files" | grep '^docs/' || true)
-        # if [[ -n "$docs_changed" ]]; then
-        #    # Run your documentation build or processing commands
-        # fi
