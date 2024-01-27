@@ -1,42 +1,37 @@
-name: Labeler and Documentation
-
+name: Label PRs
 on:
-  pull_request_target:
+  pull_request:
     paths:
-      - 'docs/**'
+      - 'content/en/**/*'
 
 jobs:
-  label:
+  auto-label:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
 
     steps:
-    - name: Labeler Action
-      uses: actions/labeler@v4
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-
-  Documentation:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
-    steps:
-    - name: Check Out Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Run Documentation Job
-      run: |
-        # Add commands to build or process documentation
-        # You can use the changed files in 'docs' directory
-        # For example, you can use 'git diff' to get the changed files
-        # and filter based on the 'docs' directory.
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-        # Example:
-        # changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-        # docs_changed=$(echo "$changed_files" | grep '^docs/' || true)
-        # if [[ -n "$docs_changed" ]]; then
-        #    # Run your documentation build or processing commands
-        # fi
+    - name: Install dependencies
+      run: npm install
+
+    - name: Auto Label PR
+      run: |
+        #!/bin/bash
+
+        changed_files=$(git diff --name-only ${{ github.base_ref }}...${{ github.sha }})
+
+        for file in $changed_files; do
+          if [[ $file == content/en/meshmap* ]]; then
+            echo "Labeling with component/cloud-docs"
+            echo "::add-labels::component/cloud-docs"
+          fi
+
+          # Add more conditions for other sections if needed
+
+        done
