@@ -1,0 +1,6 @@
+# .github/labeler.yml
+
+labeling:
+  - name: 'component/cloud-docs'
+    pattern: 'content/en/meshmap/**/*'
+  # Add more label patterns for other sections if needed
