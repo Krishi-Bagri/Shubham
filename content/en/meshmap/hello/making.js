@@ -14,6 +14,32 @@ const making = () => {
   s
   s
   s
+  try{
+  
+      }
+      catch(err)
+      {
+          console.log(err);
+          res.status(500).send({
+              success: false,
+              message: "a
+              try{
+              
+                  }
+                  catch(err)
+                  {
+                      console.log(err);
+                      res.status(500).send({
+                          success: false,
+                          message: "a",
+                          error: err
+                      })
+              
+                  }",
+              error: err
+          })
+  
+      }
   s
 sdsdsds
   
