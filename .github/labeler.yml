@@ -13,7 +13,3 @@ default-labels:
 # Define labels to be removed if no rules match
 remove-labels:
   - "in-progress"
-
-
-
-  
